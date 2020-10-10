@@ -1,4 +1,4 @@
 package com.yangs.SpringBootDemo.service;
 
-public interface videoService {
+public interface UserService {
 }

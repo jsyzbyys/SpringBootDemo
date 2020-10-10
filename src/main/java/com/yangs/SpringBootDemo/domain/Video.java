@@ -3,7 +3,7 @@ package com.yangs.SpringBootDemo.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class video implements Serializable {
+public class Video implements Serializable {
     private int id;
 
     private String title;
@@ -16,9 +16,9 @@ public class video implements Serializable {
 
     private Date createDate;
 
-    public video(){};
+    public Video(){};
 
-    public video(int id, String title){
+    public Video(int id, String title){
         this.id = id;
         this.title = title;
         this.createDate = new Date();
