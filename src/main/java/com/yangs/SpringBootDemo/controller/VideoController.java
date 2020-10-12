@@ -1,6 +1,9 @@
 package com.yangs.SpringBootDemo.controller;
 
 import com.yangs.SpringBootDemo.domain.Video;
+import com.yangs.SpringBootDemo.service.VideoService;
+import com.yangs.SpringBootDemo.service.impl.VideoServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,15 +17,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/video")
 public class VideoController {
+    @Autowired
+    private VideoService videoService;
 
     /*@RequestMapping(value="list",method= RequestMethod.GET)*/
     @GetMapping("list")
     public Object list(){
-        Map<String,String> listMap = new HashMap<>();
-        listMap.put("1","123");
-        listMap.put("2","456");
-        listMap.put("3","789");
-        return listMap;
+        List<Video> list = videoService.listVideo();
+        return list;
     }
 
 }
