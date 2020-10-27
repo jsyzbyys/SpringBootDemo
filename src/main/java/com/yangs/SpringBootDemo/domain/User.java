@@ -1,10 +1,13 @@
 package com.yangs.SpringBootDemo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
     private String id;
 
     private String userName;
 
+    @JsonIgnore
     private String password;
 
     public User(){}

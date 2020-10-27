@@ -1,7 +1,12 @@
 package com.yangs.SpringBootDemo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Video implements Serializable {
     private int id;
@@ -12,9 +17,22 @@ public class Video implements Serializable {
 
     private int price;
 
+    @JsonProperty("cover_Img")
     private String coverImg;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date createDate;
+
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<Chapter> chapterList;
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
 
     public Video(){};
 
@@ -74,13 +92,14 @@ public class Video implements Serializable {
 
     @Override
     public String toString() {
-        return "video{" +
+        return "Video{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", summary='" + summary + '\'' +
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", createDate=" + createDate +
+                ", chapterList=" + chapterList +
                 '}';
     }
 }
